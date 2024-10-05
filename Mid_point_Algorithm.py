@@ -26,7 +26,7 @@ def midPointCircleDraw(x_centre, y_centre, r):
 			P = P + 2*y - 2*x + 1
 
 
-		# check if is finished
+		# check if  it is finished
 		if (x < y):
 			break
 		
