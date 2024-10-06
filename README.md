@@ -10,5 +10,5 @@ The mid-point circle drawing algorithm is an algorithm used to determine the poi
 
 ## Planner
 Planning it was always a burden to me so i wrote a code to dynamicly plan the rest of my day.
-[Planner.ipynb](python_coolprojects\planner.ipynb 'planner.ipynb')
+[planner.ipynb](python_coolprojects\planner.ipynb 'planner.ipynb')
 
