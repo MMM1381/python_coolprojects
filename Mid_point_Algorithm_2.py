@@ -1,4 +1,6 @@
-
+import pandas as pd
+import matplotlib.pyplot as plt
+from matplotlib import animation
 
 # F(p) = x2 + y2 – r2 
 # if F(p)<0, the point is inside the circle
@@ -59,3 +61,22 @@ def midPointCircleDraw(x_centre, y_centre, r):
 # centered at (0, 0) 
 f = midPointCircleDraw(0, 0, 3)
 print(f)
+
+count = 0
+x = []
+y = []
+_x=[]
+_y=[]
+# as we impleament in realtime_drawing
+def draw_graph(i,x,y):
+    global count
+    count += 1
+	if x!=None:
+    	_x.append(count)
+    _y.append([y[])
+
+    plt.cla()
+    plt.plot(x,y)
+
+anima = animation.FuncAnimation(plt.gcf(), draw_graph, interval=1500)
+plt.show()
