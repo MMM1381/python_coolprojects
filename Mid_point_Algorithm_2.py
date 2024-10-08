@@ -11,7 +11,15 @@ def midPointCircleDraw(x_centre, y_centre, r):
 	y = 0
 	print(f"initial points: x={x+x_centre}, y={y+y_centre}")
 	# Initialising the value of P 
-	P = 1 - r 
+	P = 1 - r
+	first_octant=[]
+	second_octant=[]
+	third_octant=[]
+	fourth_octant=[]
+	fifth_octant=[]
+	sixth_octant=[]
+	seventh_octant=[]
+	eighth_octant=[]
 
 	while x > y:
 		#by given pixel (x, y), the next pixel to be plotted is either (x, y+1) or (x-1, y+1).
@@ -30,22 +38,24 @@ def midPointCircleDraw(x_centre, y_centre, r):
 		if (x < y):
 			break
 		
-		print(f"first octant: x={x+x_centre}, y={y+y_centre}")
-		print(f"fourth octant: x={-x+x_centre}, y={y+y_centre}")
-		print(f"eighth octant: x={x+x_centre}, y={-y+y_centre}")
-		print(f"fifth octant: x={-x+x_centre}, y={-y+y_centre}")
+		first_octant.append([x+x_centre,y+y_centre])
+		fourth_octant.append([-x+x_centre,y+y_centre])
+		eighth_octant.append([x+x_centre,-y+y_centre])
+		fifth_octant.append([-x+x_centre,-y+y_centre])
 
 		
 		# If x==y we have reached the end point of our octant 
 		if x != y:
-			print(f"second octant: x={y+x_centre}, y={x+y_centre}")
-			print(f"third octant: x={-y+x_centre}, y={x+y_centre}")
-			print(f"seventh octant: x={y+x_centre}, y={-x+y_centre}")
-			print(f"sixth octant: x={-y+x_centre}, y={-x+y_centre}")
+			second_octant.append([y+x_centre,x+y_centre])
+			third_octant.append([-y+x_centre,x+y_centre])
+			seventh_octant.append([y+x_centre,-x+y_centre])
+			sixth_octant.append([-y+x_centre,-x+y_centre])
 
+	return first_octant
+	
 							
 
 # To draw a circle of radius 3 
 # centered at (0, 0) 
-midPointCircleDraw(0, 0, 3)
-
+f = midPointCircleDraw(0, 0, 3)
+print(f)
