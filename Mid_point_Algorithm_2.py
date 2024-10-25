@@ -61,22 +61,3 @@ def midPointCircleDraw(x_centre, y_centre, r):
 # centered at (0, 0) 
 f = midPointCircleDraw(0, 0, 3)
 print(f)
-
-count = 0
-x = []
-y = []
-_x=[]
-_y=[]
-# as we impleament in realtime_drawing
-def draw_graph(i,x,y):
-    global count
-    count += 1
-	if x!=None:
-    	_x.append(count)
-    _y.append([y[])
-
-    plt.cla()
-    plt.plot(x,y)
-
-anima = animation.FuncAnimation(plt.gcf(), draw_graph, interval=1500)
-plt.show()
