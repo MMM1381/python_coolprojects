@@ -55,13 +55,15 @@ def midPointCircleDraw(x_centre, y_centre, r):
 
 	return [octant1,octant2[::-1],octant3,octant4[::-1],octant5,octant6[::-1],octant7,octant8[::-1]]
 	
-							
+
 
 # To draw a circle of radius 3 
 # centered at (0, 0) 
+plt.axis([0,20,0,20])
 octants = []
-for i in midPointCircleDraw(0, 0, 10):
-	octants = octants  + [j for j in i if not j in octants]
+for a in range(1,11):
+	for i in midPointCircleDraw(0, 0, a):
+		octants = octants  + [j for j in i if not j in octants]
 print(octants)
 
 x = []
