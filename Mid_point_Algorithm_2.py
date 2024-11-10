@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib import animation
-
+import numpy as np
 # F(p) = x2 + y2 – r2 
 # if F(p)<0, the point is inside the circle
 # F(p)=0, the point is on the perimeter
@@ -10,18 +10,18 @@ from matplotlib import animation
 
 def midPointCircleDraw(x_centre, y_centre, r):
 	x = r
-	y = 0
+	y = -1
 	print(f"initial points: x={x+x_centre}, y={y+y_centre}")
 	# Initialising the value of P 
 	P = 1 - r
-	first_octant=[]
-	second_octant=[]
-	third_octant=[]
-	fourth_octant=[]
-	fifth_octant=[]
-	sixth_octant=[]
-	seventh_octant=[]
-	eighth_octant=[]
+	octant1=[]
+	octant2=[]
+	octant3=[]
+	octant4=[]
+	octant5=[]
+	octant6=[]
+	octant7=[]
+	octant8=[]
 
 	while x > y:
 		#by given pixel (x, y), the next pixel to be plotted is either (x, y+1) or (x-1, y+1).
@@ -40,24 +40,40 @@ def midPointCircleDraw(x_centre, y_centre, r):
 		if (x < y):
 			break
 		
-		first_octant.append([x+x_centre,y+y_centre])
-		fourth_octant.append([-x+x_centre,y+y_centre])
-		eighth_octant.append([x+x_centre,-y+y_centre])
-		fifth_octant.append([-x+x_centre,-y+y_centre])
+		octant1.append([x+x_centre,y+y_centre])
+		octant4.append([-x+x_centre,y+y_centre])
+		octant8.append([x+x_centre,-y+y_centre])
+		octant5.append([-x+x_centre,-y+y_centre])
 
 		
 		# If x==y we have reached the end point of our octant 
 		if x != y:
-			second_octant.append([y+x_centre,x+y_centre])
-			third_octant.append([-y+x_centre,x+y_centre])
-			seventh_octant.append([y+x_centre,-x+y_centre])
-			sixth_octant.append([-y+x_centre,-x+y_centre])
+			octant2.append([y+x_centre,x+y_centre])
+			octant3.append([-y+x_centre,x+y_centre])
+			octant7.append([y+x_centre,-x+y_centre])
+			octant6.append([-y+x_centre,-x+y_centre])
 
-	return first_octant
+	return [octant1,octant2[::-1],octant3,octant4[::-1],octant5,octant6[::-1],octant7,octant8[::-1]]
 	
 							
 
 # To draw a circle of radius 3 
 # centered at (0, 0) 
-f = midPointCircleDraw(0, 0, 3)
-print(f)
+octants = []
+for i in midPointCircleDraw(0, 0, 10):
+	octants = octants  + [j for j in i if not j in octants]
+print(octants)
+
+x = []
+y = []
+
+
+def draw_graph(i):
+	x.append(octants[i][0])
+	y.append(octants[i][1])
+
+	plt.cla()
+	plt.scatter(x,y)
+
+anima = animation.FuncAnimation(plt.gcf(), draw_graph,frames=len(octants) ,interval=100)
+plt.show()
