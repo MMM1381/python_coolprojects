@@ -1,6 +1,6 @@
 # python_coolprojects
 i write mini project that i think is cool or useful
-if your looking for somthing much coller like neuralnetworks you will see it in another repo 
+if your looking for somthing much cooller like neuralnetworks you will see it in another repo 
 my neural network with pytorch repo is private for now but ill make it public oneday :)
 
 ## mid-point circle drawing algorithm
