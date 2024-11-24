@@ -5,19 +5,17 @@ import yfinance as yf
 
 data = yf.download(tickers='BTC-USD', period='max', interval='1d')
 
-count = 0
 x = []
 y = []
 
-
+print(data)
 def draw_graph(i):
     global count
-    count += 1
-    x.append(count)
-    y.append(data['Close'].iloc[count])
+    x.append(i)
+    y.append(data['Close'].iloc[i])
 
     plt.cla()
     plt.plot(x,y)
 
-anima = animation.FuncAnimation(plt.gcf(), draw_graph, interval=1500)
+anima = animation.FuncAnimation(plt.gcf(), draw_graph,frames=len(data) ,interval=1500)
 plt.show()
