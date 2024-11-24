@@ -14,3 +14,7 @@ Planning it was always a burden to me so i wrote a code to dynamicly plan the re
 
 [planner.ipynb](planner.ipynb 'Planner.ipynb')
 
+## Realtime data
+plotting realtime data is nice so lets try animation.FuncAnimation
+
+[realtime_drawing.py](realtime_drawing.py 'realtime_drawing.py')
